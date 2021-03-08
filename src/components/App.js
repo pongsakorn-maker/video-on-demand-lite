@@ -1,24 +1,20 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import Signup from "./Authentication/Signup";
-import SignIn from "./Authentication/SignIn";
+import Signup from "./authentication/Signup";
+import SignIn from "./authentication/SignIn";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from './Dashboard'
-import PrivateRoute from './Authentication/PrivateRoute'
-import ForgotPassword from './Authentication/ForgotPassword'
-import UpdateProfile from "./Authentication/UpdateProfile";
+import Profile from './authentication/Profile'
+import PrivateRoute from './authentication/PrivateRoute'
+import ForgotPassword from './authentication/ForgotPassword'
+import UpdateProfile from "./authentication/UpdateProfile";
+import Dashboard from './dashboard/Dashboard'
 function App() {
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: "100vh" }}
-    >
-      <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
           <AuthProvider>
             <Switch>
-              <PrivateRoute exact path="/" component={Dashboard}/>
+            <PrivateRoute exact path="/" component={Dashboard}/>
+              <PrivateRoute path="/user" component={Profile}/>
               <PrivateRoute path="/update-profile" component={UpdateProfile}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/signin" component={SignIn}/>
@@ -26,8 +22,6 @@ function App() {
             </Switch>
           </AuthProvider>
         </Router>
-      </div>
-    </Container>
   );
 }
 
