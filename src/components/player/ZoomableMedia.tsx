@@ -65,7 +65,7 @@ export default function ZoomableMedia() {
       .get()
       .then((doc) => {
         if (doc.exists) {
-          console.log("Document data:", doc.data());
+          // console.log("Document data:", doc.data());
         } else {
           console.log("No such document!");
         }
@@ -78,7 +78,7 @@ export default function ZoomableMedia() {
   }
   useEffect(() => {
     GetFile();
-  }, []);
+  }, [fileId]);
   return (
     <>
       <Navbar />

@@ -18,7 +18,7 @@ export default function ReactPlayer() {
   }
   useEffect(() => {
     GetFile();
-  }, []);
+  }, [fileId]);
 
   return (
     <>

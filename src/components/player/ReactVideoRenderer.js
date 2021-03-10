@@ -18,7 +18,7 @@ export default function ReactVideoRenderer() {
   }
   useEffect(() => {
     GetFile();
-  }, []);
+  }, [fileId]);
 
   return (
     <>
